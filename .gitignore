@@ -1,0 +1,13 @@
+# Ortam değişkenleri 
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Veri (büyük dosya)
+*.csv
+
+# Notebook checkpoint
+.ipynb_checkpoints/

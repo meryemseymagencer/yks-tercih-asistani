@@ -1,0 +1,277 @@
+/* ─── Tasarım değişkenleri (renk paleti, tema) ─── */
+:root {
+    --lacivert: #243f6f;        /* ana renk — güven, akademi */
+    --metin: #243f6f;
+    --metin-soluk: #858b94;
+    --lacivert-acik: #46587a;
+    --amber: #873067;           /* vurgu — pusula iğnesi, altın */
+    --amber-acik: #e0a94a;
+    --zemin: #f7f6f3;           /* sıcak beyaz zemin */
+    --kart: #ffffff;
+    --cizgi: #e5e2dc;
+/*    --yesil: #2f7d54;           /* girilebilir */
+/*    --sari: #b8860b;            /* sınırda */
+/*    --kirmizi: #a13d3d;         /* girilemez */
+   
+    --yesil: #3d7a5a;
+    --sari: #a67c1a;
+    --kirmizi: #9a4444;
+    --golge: 0 1px 3px rgba(26,43,74,0.08), 0 8px 24px rgba(26,43,74,0.04);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--zemin);
+    color: var(--metin);
+    line-height: 1.6;
+    /* İnce bir doku — akademik kağıt hissi */
+    background-image: radial-gradient(var(--cizgi) 0.5px, transparent 0.5px);
+    background-size: 22px 22px;
+}
+
+.sayfa {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+}
+
+/* ─── Başlık ─── */
+.baslik { text-align: center; margin-bottom: 44px; }
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.pusula-ikon {
+    width: 52px;
+    height: 52px;
+    color: var(--lacivert);
+}
+
+.logo h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--lacivert);
+    letter-spacing: -0.5px;
+    text-align: left;
+}
+
+.alt-baslik {
+    font-size: 0.9rem;
+    color: var(--amber);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.tanitim {
+    color: var(--metin-soluk);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ─── Arama alanı ─── */
+.arama-alani { margin-bottom: 40px; }
+
+.arama-kutu {
+    display: flex;
+    gap: 10px;
+    background: var(--kart);
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: var(--golge);
+    border: 1px solid var(--cizgi);
+}
+
+#sorguInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    color: var(--metin);
+    background: transparent;
+}
+
+#sorguInput::placeholder { color: var(--metin-soluk); opacity: 0.7; }
+
+#araButon {
+    background: var(--lacivert);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-size: 1.02rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#araButon:hover { background: var(--lacivert-acik); }
+#araButon:active { transform: scale(0.98); }
+#araButon:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ─── Örnek sorgular ─── */
+.ornekler {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ornek-etiket { color: var(--metin-soluk); font-size: 0.88rem; }
+
+.ornek {
+    background: transparent;
+    border: 1px solid var(--cizgi);
+    color: var(--lacivert-acik);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ornek:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(200,137,42,0.05);
+}
+
+/* ─── Yükleniyor ─── */
+.yukleniyor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 48px;
+    color: var(--metin-soluk);
+}
+
+.pusula-donen {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--cizgi);
+    border-top-color: var(--amber);
+    border-radius: 50%;
+    animation: don 0.9s linear infinite;
+}
+
+@keyframes don { to { transform: rotate(360deg); } }
+
+.gizli { display: none; }
+
+/* ─── Sonuçlar ─── */
+.yorum-kutu {
+    background: #fbf9f4;
+    border: 1px solid var(--cizgi);
+    color: var(--metin);
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+
+.yorum-kutu .yorum-baslik {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--amber);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+/* ─── Program kartı ─── */
+.kart {
+    background: var(--kart);
+    border: 1px solid var(--cizgi);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 12px;
+}
+
+.kart-ust {
+    margin-bottom: 4px;
+}
+
+.kart-uni {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--lacivert);
+    letter-spacing: -0.2px;
+}
+/* etiketler artık kutu değil, düz metin — nokta ayraçlı */
+.kart-detay {
+    color: var(--metin-soluk);
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+}
+
+.kart-detay .durum-metni { font-weight: 600; }
+.kart-detay .durum-girilebilir, .kart-detay .durum-yeterli { color: var(--yesil); }
+.kart-detay .durum-sinirda { color: var(--sari); }
+.kart-detay .durum-girilemez, .kart-detay .durum-yetmez { color: var(--kirmizi); }
+
+.kart-bolum {
+    color: var(--metin);
+    font-weight: 500;
+    font-size: 0.98rem;
+    margin-bottom: 12px;
+}
+/* ─── Trend tablosu (son 4 yıl) ─── */
+.kart-trend {
+    padding-top: 14px;
+    border-top: 1px dashed var(--cizgi);
+}
+.trend-tablo th:first-child, .trend-tablo td:first-child {
+    text-align: left;
+    color: var(--metin-soluk);      /* mavi değil, gri */
+    font-weight: 500;
+}
+
+.trend-tablo thead th {
+    color: var(--metin-soluk);
+    font-weight: 500;
+    border-bottom: 1px solid var(--cizgi);
+}
+
+.trend-tablo tbody td { color: var(--metin); }
+
+
+.trend-tablo th, .trend-tablo td {
+    text-align: right;
+    padding: 4px 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+
+.trend-tablo tbody td { color: var(--metin); }
+/* ─── Boş / hata ─── */
+.mesaj {
+    text-align: center;
+    padding: 40px;
+    color: var(--metin-soluk);
+}
+
+/* ─── Mobil ─── */
+@media (max-width: 600px) {
+    .sayfa { padding: 32px 16px 60px; }
+    .logo h1 { font-size: 2rem; }
+    .arama-kutu { flex-direction: column; }
+    #araButon { padding: 12px; }
+    .kart-trend { flex-direction: column; gap: 8px; }
+}

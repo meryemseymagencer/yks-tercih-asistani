@@ -1,0 +1,9 @@
+qdrant-client
+sentence-transformers
+transformers
+openai
+python-dotenv
+torch
+fastapi
+uvicorn
+einops

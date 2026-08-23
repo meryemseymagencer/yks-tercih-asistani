@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusula - YKS Tercih Asistanı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="sayfa">
+        <!-- Başlık -->
+        <header class="baslik">
+            <div class="logo">
+                <svg class="pusula-ikon" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="2"/>
+                    <path d="M24 8 L28 22 L24 40 L20 22 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M24 40 L20 26 L24 8 L28 26 Z" fill="currentColor" opacity="0.35"/>
+                    <circle cx="24" cy="24" r="2.5" fill="currentColor"/>
+                </svg>
+                <div>
+                    <h1>Pusula</h1>
+                    <p class="alt-baslik">Yeni Nesil YKS Tercih Asistanınız</p>
+                </div>
+            </div>
+            <p class="tanitim">Kriterlerini gir, sana uygun olan üniversite programlarını birlikte listeleyim.</p>
+        </header>
+
+        <!-- Arama kutusu -->
+        <section class="arama-alani">
+            <div class="arama-kutu">
+                <input
+                    type="text"
+                    id="sorguInput"
+                    placeholder="Örn: İstanbul'da İngilizce tıp okumak istiyorum"
+                    autocomplete="off"
+                />
+                <button id="araButon">
+                    <span class="buton-yazi">Ara</span>
+                </button>
+            </div>
+            <div class="ornekler">
+                <span class="ornek-etiket">Örnek sorgular:</span>
+                <button class="ornek" data-sorgu="450 puanla İngilizce bilgisayar mühendisliği">450 puanla bilgisayar müh.</button>
+                <button class="ornek" data-sorgu="300 bin sıralamayla yapay zeka bölümleri">yapay zeka bölümleri</button>
+                <button class="ornek" data-sorgu="Ankara'da devlet üniversitesinde psikoloji">Ankara'da psikoloji</button>
+            </div>
+        </section>
+
+        <!-- Yükleniyor -->
+        <div id="yukleniyor" class="yukleniyor gizli">
+            <div class="pusula-donen"></div>
+            <p>Programlar aranıyor...</p>
+        </div>
+
+        <!-- Sonuçlar -->
+        <main id="sonuclar" class="sonuclar"></main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
