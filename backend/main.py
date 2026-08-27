@@ -13,13 +13,18 @@ from asistan import asistana_sor
 
 app = FastAPI(title="YKS Tercih Asistanı")
 
-# Frontend'in backend'e istek atabilmesi için CORS izni
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],       # geliştirme için hepsi; prod'da kısıtlanır
+    allow_origins=[
+        "https://meryemseymagencer.github.io",  # GitHub Pages adresiniz
+        "http://localhost:8000",                # Lokal testler için
+        "http://127.0.0.1:8000",
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # İstek gövdesi modeli
 class MesajModeli(BaseModel):
     rol: str      # "kullanici" veya "asistan"

@@ -20,7 +20,9 @@ async function ara() {
     butonYazi.textContent = "…";                 // arama sırasında üç nokta
 
     try {
-        const cevap = await fetch("/api/ara", {
+        const API_BASE_URL = "https://html-ocean-yellow-horses.trycloudflare.com"
+
+        const cevap = await fetch(`${API_BASE_URL}/api/ara`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ sorgu: sorgu, gecmis: sohbetGecmisi }),
