@@ -77,7 +77,35 @@ body {
     max-width: 480px;
     margin: 0 auto;
 }
+.uyari-kutu {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--kart);
+    border: 1px solid var(--cizgi);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    color: var(--metin);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
 
+.uyari-kutu::before {
+    content: "!";
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--lacivert);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+}
 /* ─── Arama alanı ─── */
 .arama-alani { margin-bottom: 40px; }
 
@@ -274,4 +302,120 @@ body {
     .arama-kutu { flex-direction: column; }
     #araButon { padding: 12px; }
     .kart-trend { flex-direction: column; gap: 8px; }
+}
+
+.sohbet-kontrol {
+    display: flex;
+    justify-content: flex-end;   /* space-between → flex-end (sağa yasla) */
+    align-items: center;
+    margin: 0 auto 16px;
+    max-width: 720px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(26, 43, 74, 0.12);
+}
+.sohbet-durum {
+    font-size: 0.85rem;
+    color: rgba(26, 43, 74, 0.55);
+    font-style: italic;
+}
+.yeni-sohbet {
+    background: none;
+    border: none;
+    color: var(--amber, #c8892a);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+}
+.gizli {
+    display: none;
+}
+.tur-blok {
+    margin-bottom: 32px;
+
+}
+.tur-blok:last-child {
+    border-bottom: none;
+}
+.kullanici-soru {
+    max-width: 75%;
+    margin: 0 0 20px auto;              /* sağa yaslı */
+    padding: 10px 16px;
+    background: rgba(26, 43, 74, 0.06);  /* çok hafif lacivert zemin */
+    border: none;                        /* çerçeve yok */
+    border-radius: 14px 14px 4px 14px;   /* köşeler yumuşak, sağ-alt köşe hafif sivri */
+    text-align: left;                    /* metin içinde sola dayalı okunur */
+    color: var(--lacivert, #1a2b4a);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+/* ═══ İKİ DURUM: karşılama modu ve sohbet modu ═══ */
+
+/* Sayfa dikey bir kolon; yükseklik ekranı doldurur */
+.sayfa {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ── KARŞILAMA MODU (varsayılan) ── */
+/* Sonuçlar boş, arama kutusu dikey ortada durması için sonuçlar esner */
+#sonuclar {
+    flex: 1 1 auto;
+}
+
+/* Karşılamada arama alanı ortaya yakın dursun diye üstten boşluk */
+.arama-alani {
+    transition: none;
+}
+
+/* ── SOHBET MODU (.sohbet-modu sınıfı sayfaya eklenince) ── */
+
+/* Başlık küçülür */
+.sohbet-modu .baslik {
+    padding: 12px 0;
+}
+.sohbet-modu .baslik .tanitim {
+    display: none;                 /* tanıtım cümlesi gizlenir */
+}
+.sohbet-modu .baslik .alt-baslik {
+    display: none;                 /* alt başlık da gizlenir */
+}
+.sohbet-modu .logo {
+    justify-content: center;
+    gap: 10px;
+}
+.sohbet-modu .pusula-ikon {
+    width: 32px;                   /* logo küçülür */
+    height: 32px;
+}
+.sohbet-modu .baslik h1 {
+    font-size: 1.4rem;             /* Pusula yazısı küçülür */
+}
+
+.sohbet-modu .arama-alani {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--zemin, #faf8f2);   /* ← BURAYI kendi zemin renginle eşle */
+    border-top: 1px solid rgba(26, 43, 74, 0.10);
+    padding: 16px 24px;
+    z-index: 50;
+}
+
+/* Sabit kutu içeriği ortalı ve sınırlı genişlikte */
+.sohbet-modu .arama-kutu {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Sohbet modunda örnek sorgular gizlenir (yer kaplamasın) */
+.sohbet-modu .ornekler {
+    display: none;
+}
+
+/* Alttaki sabit kutu sonuçları örtmesin diye alta boşluk bırak */
+.sohbet-modu #sonuclar {
+    padding-bottom: 120px;
 }

@@ -1,9 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 qdrant-client
 sentence-transformers
 transformers
 openai
 python-dotenv
-torch
+torch==2.6.0
 fastapi
 uvicorn
 einops

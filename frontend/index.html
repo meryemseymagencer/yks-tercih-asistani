@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="sayfa">
+    <div class="sayfa" id="sayfa">
         <!-- Başlık -->
         <header class="baslik">
             <div class="logo">
@@ -25,11 +25,21 @@
                     <p class="alt-baslik">Yeni Nesil YKS Tercih Asistanınız</p>
                 </div>
             </div>
-            <p class="tanitim">Kriterlerini gir, sana uygun olan üniversite programlarını birlikte listeleyim.</p>
+            <p class="tanitim">Kriterlerini gir, sana uygun olan üniversite programlarını birlikte listeleyelim.</p>
         </header>
 
-        <!-- Arama kutusu -->
-        <section class="arama-alani">
+        <!-- Sohbet kontrolü: sadece sohbet modunda görünür -->
+        <div id="sohbetKontrol" class="sohbet-kontrol gizli">
+
+            <button id="yeniSohbetButon" class="yeni-sohbet" title="Geçmişi temizle, yeni bir konuya başla">Yeni sohbet</button>
+        </div>
+
+        <!-- Sonuçlar (konuşma akışı) -->
+        <main id="sonuclar" class="sonuclar"></main>
+
+
+        <!-- Arama alanı (karşılamada ortada, sohbette altta sabit) -->
+        <section class="arama-alani" id="aramaAlani">
             <div class="arama-kutu">
                 <input
                     type="text"
@@ -40,23 +50,14 @@
                 <button id="araButon">
                     <span class="buton-yazi">Ara</span>
                 </button>
-            </div>
+             </div>
             <div class="ornekler">
-                <span class="ornek-etiket">Örnek sorgular:</span>
+                <span class="ornek-etiket">Hızlı sorgular:</span>
                 <button class="ornek" data-sorgu="450 puanla İngilizce bilgisayar mühendisliği">450 puanla bilgisayar müh.</button>
                 <button class="ornek" data-sorgu="300 bin sıralamayla yapay zeka bölümleri">yapay zeka bölümleri</button>
                 <button class="ornek" data-sorgu="Ankara'da devlet üniversitesinde psikoloji">Ankara'da psikoloji</button>
             </div>
         </section>
-
-        <!-- Yükleniyor -->
-        <div id="yukleniyor" class="yukleniyor gizli">
-            <div class="pusula-donen"></div>
-            <p>Programlar aranıyor...</p>
-        </div>
-
-        <!-- Sonuçlar -->
-        <main id="sonuclar" class="sonuclar"></main>
     </div>
 
     <script src="/static/script.js"></script>

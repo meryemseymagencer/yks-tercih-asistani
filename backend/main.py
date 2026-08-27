@@ -20,21 +20,25 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
 # İstek gövdesi modeli
+class MesajModeli(BaseModel):
+    rol: str      # "kullanici" veya "asistan"
+    metin: str
+
 class SorguIstegi(BaseModel):
     sorgu: str
-
-
+    gecmis: list[MesajModeli] = []   # opsiyonel; frontend göndermezse boş liste
 # ─── API endpoint ───
 @app.post("/api/ara")
 def ara(istek: SorguIstegi):
     """Kullanıcı sorgusunu alır, asistan sonucunu döndürür."""
     if not istek.sorgu.strip():
         return {"hata": "Boş sorgu", "programlar": [], "yorum": ""}
-    return asistana_sor(istek.sorgu)
 
+    # Pydantic modelini asistan.py'nin beklediği düz dict listesine çevir
+    gecmis = [{"rol": m.rol, "metin": m.metin} for m in istek.gecmis]
+
+    return asistana_sor(istek.sorgu, gecmis=gecmis)
 
 # ─── Frontend dosyalarını sun ───
 # frontend/ klasörünü statik olarak servis et
