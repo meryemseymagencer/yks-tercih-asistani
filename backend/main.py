@@ -1,5 +1,5 @@
 """
-YKS Tercih Asistanı — FastAPI backend.
+YKS Tercih Asistanı — FastAPI backend
 Frontend'den sorgu alır, asistan.py'yi çağırır, JSON döndürür.
 """
 from fastapi import FastAPI

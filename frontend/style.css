@@ -339,7 +339,7 @@ body {
 }
 .kullanici-soru {
     max-width: 75%;
-    margin: 0 0 20px auto;              /* sağa yaslı */
+    margin: 0 0 20px auto;              /* Sağa yaslı */
     padding: 10px 16px;
     background: rgba(26, 43, 74, 0.06);  /* çok hafif lacivert zemin */
     border: none;                        /* çerçeve yok */

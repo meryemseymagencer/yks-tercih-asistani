@@ -188,7 +188,7 @@ def filtre_olustur(filtreler_dict: dict):
             kosullar.append(FieldCondition(key=alan, match=MatchValue(value=deger)))
     return Filter(must=kosullar) if kosullar else None
 # ─────────────────────────────────────────────
-# Çeşitlilik — aynı üniversite/bölümden aşırı tekrarı kırp
+# Çeşitlilik: aynı üniversite/bölümden aşırı tekrarı kırp
 # ─────────────────────────────────────────────
 def cesitlendir(adaylar, uni_max=2, bolum_max=2):
     uni_sayaci = {}      # her üniversiteden kaç tane aldık

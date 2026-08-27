@@ -27,7 +27,7 @@ async function ara() {
         });
         const veri = await cevap.json();
         sonuclariGoster(veri, sorgu);
-        input.value = "";   // gönderilince kutuyu boşalt, sonraki soruya hazır
+        input.value = "";   // Gönderilince kutuyu boşalt, sonraki soruya hazır
         // Bu turu geçmişe ekle (kullanıcının HAM sorusu + asistanın yorumu)
         sohbetGecmisi.push({ rol: "kullanici", metin: sorgu });
         if (veri.yorum) {
