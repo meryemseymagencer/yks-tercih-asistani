@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # Pusula: YKS Tercih Asistanı
 
 Öğrencilerin doğal dille soru sorarak kendilerine uygun üniversite programlarını bulmalarını sağlayan, hibrit arama tabanlı bir tercih asistanı. YÖK Atlas'ın 2025 yerleştirme verisiyle (21.493 program) çalışır.
